@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:tp="http://player.theplatform.com/" xml:lang="en" lang="en"> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-language" content="en" />
+
+    <title>FOXSport Player</title>
+
+    <meta name="tp:PreferredRuntimes" content="Universal,Flash" /> 
+    <meta name="tp:PreferredFormats" content="M3U,F4M,MPEG4" /> 
+
+    <!-- This is the site stylesheet and doesn't care about the PDK -->
+    <link rel="stylesheet" href="/pdk/web/samples/css/phone.css" type="text/css" media="screen" />
+    
+    <!-- tells phones to scale the player appropriately -->
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- <script type="text/javascript" src="/pdk/web/pdk/tpPdk.js"></script> -->
+
+    <!-- PDK Glass skin css -->
+    <link rel="stylesheet" href="/pdk/web/pdk/skins/glass/main.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/pdk/web/pdk/skins/glass/custom.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <script>
+        if (location.hostname === 'localhost') {
+            window.brunch = window.brunch || {};
+            window.brunch['auto-reload'] = {enabled: true};
+        }
+	</script>
+    <script src="/javascripts/vendor.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <script>require('initialize');</script>
+</head>
+<body>
+    <!-- ApplicationView -->
+    <div id="container"></div>
+</body>
+</html>
