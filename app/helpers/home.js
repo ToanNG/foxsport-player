@@ -38,7 +38,7 @@ App.HomeController = Em.Controller.extend({
       };
 
       App.player.set('program', program);
-      App.player.play();
+      App.player.run('play');
     }
   }
 });
