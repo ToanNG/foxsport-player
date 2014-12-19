@@ -33,10 +33,10 @@
 
   <div class="light-bar"></div>
 
-  <div class="event-data">
+  <div class="event-data noselect">
     <div class="teams">
-      <div class="team">{{data.team_A.short_name}}</div>
-      <div class="team">{{data.team_B.short_name}}</div>
+      <div class="team">{{eventData.team_A.short_name}}</div>
+      <div class="team">{{eventData.team_B.short_name}}</div>
     </div>
 
     <div class="scrubber">
@@ -45,8 +45,8 @@
     </div>
 
     <div class="counters">
-      <div class="counter">{{currentTime}}</div>
-      <div class="counter">{{duration}}</div>
+      <div class="counter">{{parseTime currentTime}}</div>
+      <div class="counter">{{parseTime duration}}</div>
     </div>
   </div>
 </div>

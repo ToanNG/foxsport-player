@@ -12,6 +12,10 @@ exports.config =
       joinTo:
         'javascripts/app.js': /^app/
         'javascripts/vendor.js': /^(bower_components|vendor)/
+      order:
+        before: [
+          'bower_components/moment/moment.js'
+        ]
 
     stylesheets:
       defaultExtension: 'css'

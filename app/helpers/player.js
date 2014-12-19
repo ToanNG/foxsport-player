@@ -1,6 +1,8 @@
 App.PlayerComponent = Ember.Component.extend({
   layoutName: 'player',
-  data: null,
+
+  eventData: null,
+  currentTime: 0,
   duration: 0,
   interactionTimeline: false,
   soccerTimebar: [
@@ -8,19 +10,19 @@ App.PlayerComponent = Ember.Component.extend({
     [45,50,55,60,65,70,75,80,85,90]
   ],
 
-  setData: function(){
+  setEventData: function(){
     var self = this;
 
     Ember.$.get('http://private-9c54-foxplay.apiary-mock.com/fox/media/1', function(data){
       data = data[0];
       data.time_bar = self.get('soccerTimebar');
-      self.set('data', data);
+      self.set('eventData', data);
       console.log(data);
     });
   },
   
   didInsertElement: function(){
-    this.setData();
+    this.setEventData();
     this.initTimeline();
 
     $pdk.controller.addEventListener('OnPlayerLoaded', this.handlePlayerLoaded.bind(this));
@@ -36,7 +38,7 @@ App.PlayerComponent = Ember.Component.extend({
 
   initTimeline: function(){
     var $thumb = this.$('.thumb'),
-        $timeline = this.$('.timeline'),
+        $timeline = this.$('.scrubber'),
         self = this;
 
     $thumb.on('mousedown', function(){
@@ -67,9 +69,8 @@ App.PlayerComponent = Ember.Component.extend({
   },
 
   handlePlayerLoaded: function(){
-    
-    // this.send('setSMIL', 'http://foxplayasialive-i.akamaihd.net/hls/live/214660/fsp_iOSlive4/index.m3u8');
-    this.send('setSMIL', 'http://foxplayasia-vh.akamaihd.net/i/vod/,FOX_SPORTS_Asia_Dev_CP/2014-10-25T16-00-39.767Z--6536.266__244101.mp4,.csmil/master.m3u8');
+    this.send('setSMIL', 'http://foxplayasialive-i.akamaihd.net/hls/live/214660/fsp_iOSlive4/index.m3u8');
+    // this.send('setSMIL', 'http://foxplayasia-vh.akamaihd.net/i/vod/,FOX_SPORTS_Asia_Dev_CP/2014-10-25T16-00-39.767Z--6536.266__244101.mp4,.csmil/master.m3u8');
   },
 
   handleMediaStart: function(){
