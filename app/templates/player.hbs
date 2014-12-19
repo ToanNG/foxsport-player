@@ -1,5 +1,7 @@
-<div id="player-wrapper" class="overlay">
+<div id="player-wrapper" class="overlay" {{bind-attr style="styleVisibility"}}>
   <script type="text/javascript" src="pdk/web/pdk/tpPdk.js"></script>
+
+  <button class="close-btn" {{action closePlayer}}>Close</button>
 
   <div id="player" class="tpPlayer"
     tp:mute="true"
@@ -35,8 +37,8 @@
 
   <div class="event-data noselect">
     <div class="teams">
-      <div class="team">{{eventData.team_A.short_name}}</div>
-      <div class="team">{{eventData.team_B.short_name}}</div>
+      <div class="team">{{programData.competitors.0.name}}</div>
+      <div class="team">{{programData.competitors.1.name}}</div>
     </div>
 
     <div class="scrubber">
