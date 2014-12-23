@@ -85,6 +85,36 @@
   background-color: yellow;
 }
 
+#player-wrapper .timeline {
+  height: 100%;
+}
+
+#player-wrapper .marker {
+  position: absolute;
+  height: 100%;
+  background-color: rgba(0,0,0,.1);
+  cursor: pointer;
+}
+#player-wrapper .marker img {
+  display: block;
+  position: relative;
+  height: 30px;
+  margin-top: -15px;
+}
+#player-wrapper .marker:hover .details-popup {
+  display: block;
+}
+
+#player-wrapper .details-popup {
+  display: none;
+  position: absolute;
+  top: -166px;
+  width: 450px;
+  height: 150px;
+  margin-left: -225px;
+  background-color: white;
+}
+
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

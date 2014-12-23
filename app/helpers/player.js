@@ -106,7 +106,7 @@ App.PlayerComponent = Ember.Component.extend({
         duration = timeObj.data.duration;
 
     this.set('currentTime', currentTime);
-    this.set('duration', duration);
+    if (!this.get('duration')) this.set('duration', duration);
 
     if (!this.isInteractingTimeline) {
       var $thumb = this.get('controls.thumb');
@@ -159,6 +159,23 @@ App.PlayerComponent = Ember.Component.extend({
       this.set('programData', programData);
     }.bind(this));
   },
+
+  markers: function(){
+    var programData = this.get('programData'),
+        duration = this.get('duration');
+
+    if (!programData || !duration) return [];
+
+    var markers = programData.markers.reverse().map(function(marker){
+      var offsetX = marker.video_time * 1000 * 100 / duration,
+          offsetY = ~marker.position ? marker.position * 50 + 25 : 50;
+      marker.stylePositionLeft = 'left: ' + offsetX + '%;';
+      marker.stylePositionTop = 'top: ' + offsetY + '%;';
+      return marker;
+    });
+
+    return markers;
+  }.property('programData', 'duration'),
 
   jumpTo: function(milliseconds){
     $pdk.controller.seekToPosition(milliseconds);

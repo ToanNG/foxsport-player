@@ -43,7 +43,16 @@
 
     <div class="scrubber">
       <div class="thumb"></div>
-      <div class="timeline"></div>
+      <div class="timeline">
+        {{#each marker in markers}}
+          {{#if marker.marker_type.icon}}
+            <div class="marker" {{bind-attr style="marker.stylePositionLeft"}}>
+              <div class="details-popup"></div>
+              <img {{bind-attr src="marker.marker_type.icon" style="marker.stylePositionTop"}}>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
     </div>
 
     <div class="counters">
